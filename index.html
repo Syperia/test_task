@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test task: Contacts</title>
+    <meta charset="utf-8">
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/foundation.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/index.css">
+    <!-- css end -->
+    <!-- js -->
+    <script type="text/javascript" src="jslibs/1angular.min.js"></script>
+    <script type="text/javascript" src="jslibs/2jquery.js"></script>
+    <script type="text/javascript" src="jslibs/lodash.js"></script>
+    <script type="text/javascript" src="jslibs/hello.all.js"></script>
+
+    <script type="text/javascript" src="app/config.js"></script>
+    <script type="text/javascript" src="app/core/config.js"></script>
+
+    <script type="text/javascript" src="app/angular_init.js"></script>
+
+    <script type="text/javascript" src="app/controllers/mainController.js"></script>
+    <script type="text/javascript" src="app/controllers/contactsController.js"></script>
+    <script type="text/javascript" src="app/services/hello.js"></script>
+    <script type="text/javascript" src="app/services/contacts.js"></script>
+    <script type="text/javascript" src="app/directives.js"></script>
+    <script type="text/javascript" src="app/bootstrap.js"></script>
+    <!-- js end -->
+</head>
+<body ng-controller="mainController">
+<div class="splash-screen">
+    <div class="splash-logo-container">
+        <div id="connecting" class="spinner small">
+            <div class="dot bounce1 white"></div>
+            <div class="dot bounce2 white"></div>
+            <div class="dot bounce3 white"></div>
+        </div>
+    </div>
+</div>
+<div>
+    <nav id="top-bar" class="tab-bar">
+        <section class="left-small pointer ta-center">
+            Task
+        </section>
+        <section class="middle tab-bar-section p0 title-panel">
+            Contacts
+        </section>
+    </nav>
+    <section id="main-section" class="main-section">
+        <div ng-include="'app/contacts.html'" ng-controller="contactsController"></div>
+    </section>
+</div>
+</body>
+</html>

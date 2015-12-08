@@ -1,0 +1,33 @@
+<div class="ta-center top-margin">
+    <h4>1. Login</h4>
+
+    <p>
+        <button ng-repeat="provider in ::providers" ng-click="login(provider)" ng-disabled="provider.signedIn">
+            <i class="fa" ng-class="'fa-'+provider.name"></i> {{ provider.name }}
+        </button>
+    </p>
+    <h4>2. Get Contacts</h4>
+
+    <p>
+        <button ng-repeat="provider in ::providers" ng-click="getContacts(provider)" ng-disabled="!provider.signedIn">
+            <span ng-hide="provider.requestInProgress"><i class="fa" ng-class="'fa-'+provider.name"></i> {{ provider.name }}</span>
+            <span ng-show="provider.requestInProgress" spinner spinner-color="white"></span>
+        </button>
+    </p>
+
+    <h4>3. Contacts</h4>
+
+        <div ng-repeat="provider in providers">
+            <h5>{{provider.name}}</h5>
+            <ul>
+                <li ng-repeat="contact in provider.contacts"> {{contact.name || contact.email}}</li>
+                <li ng-hide="provider.contacts.length">No contacts</li>
+            </ul>
+        </div>
+
+    <h4>4. Save Contacts</h4>
+    <button ng-click="saveContacts()" ng-disabled="isSaving">
+        <span ng-hide="isSaving"><i class="fa fa-save"></i> Save contacts</span>
+        <span ng-show="isSaving" spinner spinner-color="white"></span>
+    </button>
+</div>
