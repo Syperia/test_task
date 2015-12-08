@@ -2,17 +2,23 @@
     <h4>1. Login</h4>
 
     <p>
-        <button ng-repeat="provider in ::providers" ng-click="login(provider)" ng-disabled="provider.signedIn">
-            <i class="fa" ng-class="'fa-'+provider.name"></i> {{ provider.name }}
-        </button>
+    <ul class="button-group round">
+        <li ng-repeat="provider in ::providers" ng-click="login(provider)">
+            <a class="button" ng-class="{disabled: provider.signedIn}"><i class="fa" ng-class="'fa-'+provider.name"></i> {{ provider.name }}</a>
+        </li>
+    </ul>
     </p>
     <h4>2. Get Contacts</h4>
 
     <p>
-        <button ng-repeat="provider in ::providers" ng-click="getContacts(provider)" ng-disabled="!provider.signedIn">
-            <span ng-hide="provider.requestInProgress"><i class="fa" ng-class="'fa-'+provider.name"></i> {{ provider.name }}</span>
-            <span ng-show="provider.requestInProgress" spinner spinner-color="white"></span>
-        </button>
+    <ul class="button-group round">
+        <li ng-repeat="provider in ::providers" ng-click="getContacts(provider)">
+            <a class="button" ng-class="{disabled: !provider.signedIn}">
+                <span ng-hide="provider.requestInProgress"><i class="fa" ng-class="'fa-'+provider.name"></i> {{ provider.name }}</span>
+                <span ng-show="provider.requestInProgress" spinner spinner-color="white"></span>
+            </a>
+        </li>
+    </ul>
     </p>
 
     <h4>3. Contacts</h4>
@@ -26,8 +32,8 @@
         </div>
 
     <h4>4. Save Contacts</h4>
-    <button ng-click="saveContacts()" ng-disabled="isSaving">
+    <a class="button" ng-class="{disabled: isSaving}" ng-click="saveContacts(this)" download="contacts.json">
         <span ng-hide="isSaving"><i class="fa fa-save"></i> Save contacts</span>
         <span ng-show="isSaving" spinner spinner-color="white"></span>
-    </button>
+    </a>
 </div>
