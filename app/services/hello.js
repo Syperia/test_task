@@ -23,7 +23,7 @@ angular.module("angServices")
         this.getContacts = function(network) {
             var method = 'me/contacts';
             if(network == 'yahoo') {
-                method = 'me'
+                method = 'me/friends'
             }
             return hello(network).api(method);
         }
