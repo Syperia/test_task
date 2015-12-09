@@ -15,7 +15,7 @@ angular.module("angServices")
 
         this.login = function(network) {
             if(network == 'yahoo') {
-                hello(network).login();
+                return hello(network).login();
             }
             return hello(network).login({scope: 'friends'});
         };
